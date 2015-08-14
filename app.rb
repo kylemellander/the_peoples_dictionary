@@ -24,3 +24,8 @@ post ('/word/:word_id/definition/add') do
   Definition.new({:definition => params.fetch("definition"), :word_id => @word.id()}).save()
   erb(:word)
 end
+
+get ('/word/:id/delete') do
+  Word.delete(params.fetch('id').to_i)
+  erb(:index)
+end

@@ -1,13 +1,16 @@
 <div class="container">
-  <div class="row ko-all-words">
+  <div class="row">
     <h3 class="ko-heading">Words:</h3>
-    <ul>
+    <div class="ko-all-words">
       <% Word.all().each do |word| %>
-      <li class="ko-word-list">
+      <div class="ko-word">
         <a href="/word/<%= word.id() %>"><%= word.word() %></a>
-      </li>
+      </div>
+      <div class="ko-word-delete">
+        <a href="/word/<%= word.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+      </div>
       <% end %>
-    </ul>
+    </div>
   </div>
   <div class="row ko-add-word">
     <form action="/word/add" method="post">
