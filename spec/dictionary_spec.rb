@@ -5,6 +5,7 @@ require("definition")
 describe(Word) do
   before() do
     Word.clear()
+    Definition.clear()
   end
 
   describe("#initialize") do
@@ -72,6 +73,11 @@ describe(Word) do
 end
 
 describe(Definition) do
+  before() do
+    Word.clear()
+    Definition.clear()
+  end
+
   describe("#initialize") do
     it("creates new Definition with parameters") do
       test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
@@ -112,6 +118,16 @@ describe(Definition) do
       test_definition2.save()
       Definition.delete(2)
       expect(Definition.all()).to(eq([test_definition]))
+    end
+  end
+
+  describe(".find_by_word_id") do
+    it("finds all the definitions that are associated with a word id") do
+      test_word = Word.new({:name => "Spry"})
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_word.save()
+      test_definition.save()
+      expect(Definition.find_by_word_id(1)).to(eq([test_definition]))
     end
   end
 
