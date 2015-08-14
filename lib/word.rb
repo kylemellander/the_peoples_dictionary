@@ -22,4 +22,14 @@ class Word
     @@words = []
     @@id_count = 0
   end
+
+  define_singleton_method(:delete) do |id|
+    revised_words = []
+    @@words.each do |word|
+      if word.id() != id
+        revised_words.push(word)
+      end
+    end
+    @@words = revised_words
+  end
 end

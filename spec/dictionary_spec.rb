@@ -33,4 +33,15 @@ describe(Word) do
       expect(Word.all()).to(eq([]))
     end
   end
+
+  describe(".delete") do
+    it("deletes a single word from the Word class") do
+      test_word = Word.new({:name => "Spry"})
+      test_word2 = Word.new({:name => "Peppy"})
+      test_word.save()
+      test_word2.save()
+      Word.delete(2)
+      expect(Word.all()).to(eq([test_word]))
+    end
+  end
 end
