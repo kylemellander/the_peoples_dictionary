@@ -57,4 +57,12 @@ describe('dictionary site', {:type => :feature}) do
     visit('/word/1/1/delete')
     expect(page).to have_no_content("Quick")
   end
+
+  it("displays an error and the index page if an incorrect word is inputted") do
+    visit('/')
+    fill_in("word", :with => "Spry!")
+    click_button("Add Word")
+    expect(page).to have_no_content("spry!")
+    expect(page).to have_content("You can only use letters to add a word (no spaces or special characters)")
+  end
 end

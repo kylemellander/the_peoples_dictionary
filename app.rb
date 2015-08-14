@@ -11,7 +11,11 @@ end
 post ('/word/add') do
   @word = Word.new({:word => params.fetch('word')})
   @word.save()
-  erb(:word)
+  if @word.error() == 1
+    erb(:index)
+  else
+    erb(:word)
+  end
 end
 
 get ('/word/:id') do

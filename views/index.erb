@@ -1,3 +1,10 @@
+<% if @word != nil %>
+  <% if @word.error() == 1 %>
+<div class="row ko-error-message">
+  Error: <%= @word.error_message() %>
+</div>
+  <% end %>
+<% end %>
 <div class="container">
   <div class="row">
     <h3 class="ko-heading">Words:</h3>
