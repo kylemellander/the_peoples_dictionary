@@ -89,6 +89,6 @@ class Definition
   end
 
   define_singleton_method(:sort) do
-    @@definitions.sort!{|a, b| a.votes() <=> b.votes()}
+    @@definitions.sort!{|a, b| b.votes() <=> a.votes()}
   end
 end
