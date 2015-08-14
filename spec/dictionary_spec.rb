@@ -10,4 +10,10 @@ describe(Word) do
       expect(test_word.id()).to(eq(1))
     end
   end
+
+  describe(".all") do
+    it("returns empty when calling .all method on Word") do
+      expect(Word.all()).to(eq([]))
+    end
+  end
 end
