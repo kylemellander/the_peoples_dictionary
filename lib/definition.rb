@@ -75,6 +75,7 @@ class Definition
       revised_definitions.push(definition)
     end
     @@definitions = revised_definitions
+    Definition.sort()
   end
 
   define_singleton_method(:downvote) do |id|
@@ -86,6 +87,7 @@ class Definition
       revised_definitions.push(definition)
     end
     @@definitions = revised_definitions
+    Definition.sort()
   end
 
   define_singleton_method(:sort) do
