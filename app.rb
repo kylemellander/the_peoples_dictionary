@@ -20,9 +20,7 @@ get ('/word/:id') do
 end
 
 post ('/word/:word_id/definition/add') do
-  @word_id = params.fetch("word_id").to_i
-  @word = Word.find(@word_id)
-  definition = params.fetch("definition")
-  Definition.new({:definition => definition, :word_id => @word_id})
+  @word = Word.find(params.fetch("word_id").to_i)
+  Definition.new({:definition => params.fetch("definition"), :word_id => @word.id()}).save()
   erb(:word)
 end

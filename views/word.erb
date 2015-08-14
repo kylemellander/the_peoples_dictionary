@@ -2,7 +2,7 @@
 <div class="row ko-all-definitions">
   <h3 class="ko-heading">Definitions:</h3>
   <ul>
-    <% Definition.find_by_word_id(@word_id).each do |definition| %>
+    <% Definition.find_by_word_id(@word.id()).each do |definition| %>
     <li class="ko-definition-list">
       <%= definition.definition() %>
     </li>
