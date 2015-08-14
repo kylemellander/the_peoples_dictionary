@@ -92,7 +92,7 @@ describe(Word) do
       test_word.save()
       expect(Word.all()).to(eq([]))
       expect(test_word.error()).to(eq(1))
-      expect(test_word.error_message()).to(eq("You can only use letters to add a word (no spaces or special characters)"))
+      expect(test_word.message()).to(eq("You can only use letters to add a word (no spaces or special characters)"))
     end
   end
 end

@@ -65,4 +65,12 @@ describe('dictionary site', {:type => :feature}) do
     expect(page).to have_no_content("spry!")
     expect(page).to have_content("You can only use letters to add a word (no spaces or special characters)")
   end
+
+  it("displays a success message if successfully added word") do
+    visit('/')
+    fill_in("word", :with => "Spry")
+    click_button("Add Word")
+    expect(page).to have_content("Spry")
+    expect(page).to have_content("You have successfully added the word ")
+  end
 end

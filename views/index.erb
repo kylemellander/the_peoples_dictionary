@@ -1,7 +1,7 @@
 <% if @word != nil %>
   <% if @word.error() == 1 %>
 <div class="row ko-error-message">
-  Error: <%= @word.error_message() %>
+  Error: <%= @word.message() %>
 </div>
   <% end %>
 <% end %>

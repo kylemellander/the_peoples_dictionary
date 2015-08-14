@@ -1,3 +1,8 @@
+<% if @word.success() == 1 %>
+<div class="row ko-success-message">
+  Error: <%= @word.message() %>
+</div>
+<% end %>
 <h2 class="ko-word-title"><%= @word.word().capitalize() %></h2>
 <div class="row">
   <h3 class="ko-heading">Definitions:</h3>
