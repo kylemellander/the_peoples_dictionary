@@ -70,8 +70,7 @@ class Definition
     revised_definitions = []
     @@definitions.each do |definition|
       if definition.id() == id
-        old_votes = definition.votes()
-        definition.votes(old_votes + 1)
+        definition.votes += 1
       end
       revised_definitions.push(definition)
     end
