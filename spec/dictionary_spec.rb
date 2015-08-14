@@ -190,4 +190,16 @@ describe(Definition) do
       expect(test_definition.votes()).to(eq(-1))
     end
   end
+
+  describe(".sort") do
+    it("properly sorts definitions by votes") do
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_definition.save()
+      test_definition2 = Definition.new({:definition => "Quiet", :word_id => 1})
+      test_definition2.save()
+      Definition.upvote(2)
+      Definition.sort()
+      expect(Definition.all()).to(eq([test_definition2, test_definition]))
+    end
+  end
 end

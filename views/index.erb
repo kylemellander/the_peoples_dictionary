@@ -5,6 +5,11 @@
 </div>
   <% end %>
 <% end %>
+<% if @success == 1 %>
+<div class="row ko-success-message">
+  <%= @message %>
+</div>
+<% end %>
 <div class="container">
   <div class="row">
     <h3 class="ko-heading">Words:</h3>

@@ -35,12 +35,19 @@ post ('/word/:word_id/definition/add') do
 end
 
 get ('/word/:id/delete') do
-  Word.delete(params.fetch('id').to_i)
+  id = params.fetch('id').to_i
+  word = Word.find(id)
+  @success = 1
+  @message = "You have successfully deleted the word '" + word.word() + "'."
+  Word.delete(id)
   erb(:index)
 end
 
 get ('/word/:word_id/:id/delete') do
-  Definition.delete(params.fetch('id').to_i)
+  id = params.fetch('id').to_i
+  @success = 1
+  @message = "You have successfully deleted the definition '" + Definition.find(id).definition() + "'."
+  Definition.delete(id)
   @word = Word.find(params.fetch('word_id').to_i)
   erb(:word)
 end
