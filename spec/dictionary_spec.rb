@@ -85,6 +85,16 @@ describe(Word) do
       expect(test_word.find_definitions()).to(eq([test_definition]))
     end
   end
+
+  describe("#error") do
+    it("returns an error and message if user enters the wrong input for a word") do
+      test_word = Word.new({:word => "Spry!"})
+      test_word.save()
+      expect(Word.all()).to(eq([]))
+      expect(test_word.error()).to(eq(1))
+      expect(test_word.error_message()).to(eq("You can only use letters to add a word (no spaces or special characters)"))
+    end
+  end
 end
 
 describe(Definition) do

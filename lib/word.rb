@@ -2,12 +2,14 @@ class Word
   @@words = []
   @@id_count = 0
 
-  attr_reader(:word, :id)
+  attr_reader(:word, :id, :error, :error_message)
 
   define_method(:initialize) do |attributes|
     @word = attributes.fetch(:word, "").downcase()
     @@id_count += 1
     @id = @@id_count
+    @error = 0
+    @error_message = ""
   end
 
   define_singleton_method(:all) do
@@ -15,7 +17,10 @@ class Word
   end
 
   define_method(:save) do
-    @@words.push(self)
+    self.error_check()
+    if @error != 1
+      @@words.push(self)
+    end
   end
 
   define_singleton_method(:clear) do
@@ -51,5 +56,12 @@ class Word
 
   define_method(:find_definitions) do
     Definition.find_by_word_id(@id)
+  end
+
+  define_method(:error_check) do
+    if word()[/[a-zA-Z]+/] != word()
+      @error = 1
+      @error_message = "You can only use letters to add a word (no spaces or special characters)"
+    end
   end
 end
