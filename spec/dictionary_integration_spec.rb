@@ -50,4 +50,11 @@ describe('dictionary site', {:type => :feature}) do
     visit('/word/1/delete')
     expect(page).to have_no_content("spry")
   end
+
+  it("successfully deletes a word") do
+    Word.new({:word => "Spry"}).save()
+    Definition.new({:definition => "Quick", :word_id => 1})
+    visit('/word/1/1/delete')
+    expect(page).to have_no_content("Quick")
+  end
 end

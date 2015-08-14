@@ -1,14 +1,18 @@
 <h2 class="ko-word-title"><%= @word.word().capitalize() %></h2>
-<div class="row ko-all-definitions">
+<div class="row">
   <h3 class="ko-heading">Definitions:</h3>
-  <ul>
+  <div class="ko-all-definitions">
     <% Definition.find_by_word_id(@word.id()).each do |definition| %>
-    <li class="ko-definition-list">
-      <%= definition.definition() %>
-    </li>
+    <div class="ko-definition">
+      <div class="ko-definition-display">
+        <%= definition.definition() %>
+      </div>
+      <div class="ko-definition-delete">
+        <a href="/word/<%= @word.id() %>/<%= definition.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+      </div>
+    </div>
     <% end %>
-  </ul>
-
+  </div>
 </div>
 <div class="row ko-add-definition">
   <form action="/word/<%= @word.id() %>/definition/add" method="post">

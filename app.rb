@@ -29,3 +29,9 @@ get ('/word/:id/delete') do
   Word.delete(params.fetch('id').to_i)
   erb(:index)
 end
+
+get ('/word/:word_id/:id/delete') do
+  Definition.delete(params.fetch('id').to_i)
+  @word = Word.find(params.fetch('word_id').to_i)
+  erb(:word)
+end

@@ -4,10 +4,12 @@
     <div class="ko-all-words">
       <% Word.all().each do |word| %>
       <div class="ko-word">
-        <a href="/word/<%= word.id() %>"><%= word.word() %></a>
-      </div>
-      <div class="ko-word-delete">
-        <a href="/word/<%= word.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+        <div class="ko-word-display">
+          <a href="/word/<%= word.id() %>"><%= word.word() %></a>
+        </div>
+        <div class="ko-word-delete">
+          <a href="/word/<%= word.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+        </div>
       </div>
       <% end %>
     </div>
