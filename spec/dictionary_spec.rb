@@ -16,4 +16,12 @@ describe(Word) do
       expect(Word.all()).to(eq([]))
     end
   end
+
+  describe("#save") do
+    it("successfully saves a word to the Word class") do
+      test_word = Word.new({:name => "Spry"})
+      test_word.save()
+      expect(Word.all()).to(eq([test_word]))
+    end
+  end
 end
