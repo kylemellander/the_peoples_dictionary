@@ -76,4 +76,16 @@ class Definition
     end
     @@definitions = revised_definitions
   end
+
+  define_singleton_method(:downvote) do |id|
+    revised_definitions = []
+    @@definitions.each do |definition|
+      if definition.id() == id
+        definition.votes -= 1
+      end
+      revised_definitions.push(definition)
+    end
+    @@definitions = revised_definitions
+  end
+
 end
