@@ -58,3 +58,10 @@ get ('/word/:word_id/:id/upvote') do
   @word = Word.find(params.fetch('word_id').to_i)
   erb(:word)
 end
+
+get ('/word/:word_id/:id/downvote') do
+  id = params.fetch('id').to_i
+  Definition.downvote(id)
+  @word = Word.find(params.fetch('word_id').to_i)
+  erb(:word)
+end

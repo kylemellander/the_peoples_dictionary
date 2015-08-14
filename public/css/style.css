@@ -1,0 +1,108 @@
+body {
+  background:url('/img/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Varela Round', sans-serif !important;
+  padding-bottom:140px;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #333;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #333;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #333;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #333;
+}
+.ko-header {
+  text-transform:uppercase;
+  width:100%;
+  text-align:center;
+  font-family: 'Poiret One', cursive;
+  font-size:6em;
+}
+h2.ko-word-title {
+  font-size:4em;
+  font-family: 'Poiret One', cursive;
+}
+.ko-header a:hover, .ko-header a:focus {
+  text-decoration:none;
+}
+.odd {
+  background:rgba(255,255,255,0.7);
+}
+.even {
+  background:rgba(210,210,210,0.7);
+}
+.ko-success-message {
+  background:#DFF2BF;
+  color: #4F8A10;
+  padding: 20px 20px;
+  border:1px #4F8A10 solid;
+  border-radius: 8px;
+}
+.ko-error-message {
+  color: #D63301;
+  background-color: #FFCCBA;
+  padding: 20px;
+  border:1px #D63301 solid;
+  border-radius: 8px;
+}
+.ko-word {
+  padding:6px 15px;
+}
+.ko-word-display {
+  font-size:1.2em;
+}
+.ko-delete {
+  float:right;
+  margin-top:4px;
+}
+.ko-delete a {
+  color: #888;
+}
+.ko-all-words {
+  margin-bottom: 20px;
+}
+.ko-add {
+  width:100%;
+  position:fixed;
+  bottom:0;
+  background:#fff;
+  padding:10px 0;
+}
+.ko-add input {
+  background:none;
+  border:1px #333 solid;
+  width:100%;
+  font-size:1.8em;
+  color: #333;
+}
+.ko-add button {
+  font-size:.88em;
+  padding:10px 20px;
+  background:none;
+  width:100%;
+  text-align:center;
+  border:#333 solid 1px;
+}
+.ko-add button:hover {
+  background:#fff;
+}
+.ko-definition {
+  padding:15px;
+}
+.ko-rank, .ko-vote, .ko-definition-display, .ko-definition-delete {
+  display:inline-table;
+}
+.ko-rank {
+  margin-right:10px;
+}
+.ko-definition-display {
+  padding: 0 20px;
+}

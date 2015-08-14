@@ -6,12 +6,17 @@
 
 ## Description
 
-A dictionary app that is user driven.  Users are able to add words to the dictionary and then add definitions.  This will allow it to work for any language or culture, regardless of how language evolves.
+A dictionary app that is user driven.  Users are able to add words to the dictionary and then add definitions.  This will allow it to work for any language or culture, regardless of how language evolves. Also, users are able to upvote or downvote content if they thinks it is a good definition or not. For true web usability, future work needs to be done to add user authentication to prevent abuse, as well as bringing the delete features to some kind of admin.
 
 ## Setup
 
 * Clone from Github (https://github.com/kylemellander/peoples_dictionary.git)
 * In terminal, run "ruby app.rb" in the root folder
+* Have fun!
+
+---------------------------
+
+* Alternatively, you can test out the app at 
 
 ## Technologies Used
 

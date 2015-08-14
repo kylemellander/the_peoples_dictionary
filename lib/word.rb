@@ -14,6 +14,7 @@ class Word
   end
 
   define_singleton_method(:all) do
+    Word.sort()
     @@words
   end
 

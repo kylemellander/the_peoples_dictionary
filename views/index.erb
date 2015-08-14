@@ -1,36 +1,45 @@
-<% if @word != nil %>
-  <% if @word.error() == 1 %>
-<div class="row ko-error-message">
-  Error: <%= @word.message() %>
-</div>
-  <% end %>
-<% end %>
-<% if @success == 1 %>
-<div class="row ko-success-message">
-  <%= @message %>
-</div>
-<% end %>
 <div class="container">
+  <% if @word != nil %>
+    <% if @word.error() == 1 %>
+  <div class="row ko-error-message">
+    Error: <%= @word.message() %>
+  </div>
+    <% end %>
+  <% end %>
+  <% if @success == 1 %>
+  <div class="row ko-success-message">
+    <%= @message %>
+  </div>
+  <% end %>
   <div class="row">
     <h3 class="ko-heading">Words:</h3>
     <div class="ko-all-words">
+      <% i=1 %>
       <% Word.all().each do |word| %>
-      <div class="ko-word">
+      <div class="ko-word <% if i.even? %>even<% else %>odd<% end%>">
+        <div class="ko-delete">
+          <a href="/word/<%= word.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+        </div>
         <div class="ko-word-display">
           <a href="/word/<%= word.id() %>"><%= word.word() %></a>
         </div>
-        <div class="ko-word-delete">
-          <a href="/word/<%= word.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-        </div>
       </div>
+        <% i+=1 %>
       <% end %>
     </div>
   </div>
-  <div class="row ko-add-word">
-    <form action="/word/add" method="post">
-      <label for="word">Add a word to the dictionary:</label>
-      <input type="text" name="word" placeholder="Word">
-      <button type="submit">Add Word</button>
-    </form>
+</div>
+<div class="row ko-add">
+  <div class="container">
+    <div class="row">
+      <form action="/word/add" method="post">
+        <div class="col-sm-10">
+          <input type="text" name="word" placeholder="Add a Word">
+        </div>
+        <div class="col-sm-2">
+          <button type="submit">Add Word</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
