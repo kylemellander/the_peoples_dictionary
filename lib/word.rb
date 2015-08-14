@@ -17,4 +17,9 @@ class Word
   define_method(:save) do
     @@words.push(self)
   end
+
+  define_singleton_method(:clear) do
+    @@words = []
+    @@id_count = 0
+  end
 end

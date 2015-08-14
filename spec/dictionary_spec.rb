@@ -24,4 +24,13 @@ describe(Word) do
       expect(Word.all()).to(eq([test_word]))
     end
   end
+
+  describe(".clear") do
+    it("clears all words that have been saved") do
+      test_word = Word.new({:name => "Spry"})
+      test_word.save()
+      Word.clear()
+      expect(Word.all()).to(eq([]))
+    end
+  end
 end
