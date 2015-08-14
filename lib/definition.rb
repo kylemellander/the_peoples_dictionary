@@ -9,6 +9,7 @@ class Definition
     @word_id = attributes.fetch(:word_id)
     @@id_count += 1
     @id = @@id_count
+    @votes = 0
   end
 
   define_singleton_method(:all) do

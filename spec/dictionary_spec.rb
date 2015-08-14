@@ -43,10 +43,13 @@ describe(Word) do
     it("deletes a single word from the Word class") do
       test_word = Word.new({:name => "Spry"})
       test_word2 = Word.new({:name => "Peppy"})
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 2})
       test_word.save()
       test_word2.save()
+      test_definition.save()
       Word.delete(2)
       expect(Word.all()).to(eq([test_word]))
+      expect(Definition.all()).to(eq([]))
     end
   end
 

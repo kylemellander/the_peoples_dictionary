@@ -28,6 +28,8 @@ class Word
     @@words.each do |word|
       if word.id() != id
         revised_words.push(word)
+      else
+        Definition.delete_by_word_id(id)
       end
     end
     @@words = revised_words
