@@ -80,4 +80,27 @@ describe(Definition) do
       expect(test_definition.word_id()).to(eq(1))
     end
   end
+
+  describe(".all") do
+    it("returns empty array when no definitions exist") do
+      expect(Definition.all()).to(eq([]))
+    end
+  end
+
+  describe("#save") do
+    it("successfully saves a word to the Definition class") do
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_definition.save()
+      expect(Definition.all()).to(eq([test_definition]))
+    end
+  end
+
+  describe(".clear") do
+    it("clears all definitions that have been saved") do
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_definition.save()
+      Definition.clear()
+      expect(Definition.all()).to(eq([]))
+    end
+  end
 end
