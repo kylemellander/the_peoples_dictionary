@@ -73,4 +73,12 @@ describe('dictionary site', {:type => :feature}) do
     expect(page).to have_content("Spry")
     expect(page).to have_content("You have successfully added the word ")
   end
+
+  it("displays a success message when a definition is added") do
+    Word.new({:word => "Spry"}).save()
+    visit('/word/1')
+    fill_in("definition", :with => "Quick; Agile")
+    click_button("Add Definition")
+    expect(page).to have_content("You have successfully added the definition: ")
+  end
 end

@@ -14,6 +14,8 @@ post ('/word/add') do
   if @word.error() == 1
     erb(:index)
   else
+    @success = 1
+    @message = @word.message()
     erb(:word)
   end
 end
@@ -25,7 +27,10 @@ end
 
 post ('/word/:word_id/definition/add') do
   @word = Word.find(params.fetch("word_id").to_i)
-  Definition.new({:definition => params.fetch("definition"), :word_id => @word.id()}).save()
+  definition = Definition.new({:definition => params.fetch("definition"), :word_id => @word.id()})
+  definition.save()
+  @success = 1
+  @message = 'You have successfully added the definition: "' + definition.definition() + '"'
   erb(:word)
 end
 
