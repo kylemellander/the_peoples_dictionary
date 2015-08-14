@@ -136,6 +136,14 @@ describe(Definition) do
     end
   end
 
+  describe(".find") do
+    it("finds a definition by id") do
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_definition.save()
+      expect(Definition.find(1)).to(eq(test_definition))
+    end
+  end
+
   describe(".find_by_word_id") do
     it("finds all the definitions that are associated with a word id") do
       test_word = Word.new({:name => "Spry"})
@@ -148,13 +156,19 @@ describe(Definition) do
 
   describe(".delete_by_word_id") do
     it ("deletes all definitions associated with a particular word") do
-      test_word = Word.new({:name => "Spry"})
       test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
-      test_word.save()
       test_definition.save()
       Definition.delete_by_word_id(1)
       expect(Definition.all()).to(eq([]))
     end
   end
 
+  describe(".upvote") do
+    it ("adds a vote to a definition") do
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_definition.save()
+      Definition.upvote(1)
+      expect(test_definition.votes()).to(eq(1))
+    end
+  end
 end

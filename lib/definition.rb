@@ -3,6 +3,7 @@ class Definition
   @@id_count = 0
 
   attr_reader(:definition, :word_id, :id)
+  attr_accessor(:votes)
 
   define_method(:initialize) do |attributes|
     @definition = attributes.fetch(:definition)
@@ -45,6 +46,16 @@ class Definition
     @@definitions = revised_definitions
   end
 
+  define_singleton_method(:find) do |id|
+    found_definition = nil
+    @@definitions.each do |definition|
+      if definition.id() == id
+        found_definition = definition
+      end
+    end
+    found_definition
+  end
+
   define_singleton_method(:find_by_word_id) do |word_id|
     found_definitions = []
     @@definitions.each do |definition|
@@ -53,5 +64,17 @@ class Definition
       end
     end
     found_definitions
+  end
+
+  define_singleton_method(:upvote) do |id|
+    revised_definitions = []
+    @@definitions.each do |definition|
+      if definition.id() == id
+        old_votes = definition.votes()
+        definition.votes(old_votes + 1)
+      end
+      revised_definitions.push(definition)
+    end
+    @@definitions = revised_definitions
   end
 end
