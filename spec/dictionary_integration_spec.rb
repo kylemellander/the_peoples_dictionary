@@ -13,6 +13,14 @@ describe('dictionary site', {:type => :feature}) do
     visit('/')
     fill_in("word", :with => "Spry")
     click_button("Add Word")
+    expect(page).to have_content("Spry")
+  end
+
+  it("successfully displays list of words added on homepage") do
+    visit('/')
+    fill_in("word", :with => "Spry")
+    click_button("Add Word")
+    click_link("The People's Dictionary")
     expect(page).to have_content("spry")
   end
 end
