@@ -2,10 +2,10 @@ class Word
   @@words = []
   @@id_count = 0
 
-  attr_reader(:name, :id)
+  attr_reader(:word, :id)
 
   define_method(:initialize) do |attributes|
-    @name = attributes.fetch(:name, "").downcase()
+    @word = attributes.fetch(:word, "").downcase()
     @@id_count += 1
     @id = @@id_count
   end
@@ -46,7 +46,7 @@ class Word
   end
 
   define_singleton_method(:sort) do
-    @@words.sort!{|a, b| a.name() <=> b.name()}
+    @@words.sort!{|a, b| a.word() <=> b.word()}
   end
 
   define_method(:find_definitions) do

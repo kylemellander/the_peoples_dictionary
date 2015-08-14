@@ -10,8 +10,8 @@ describe(Word) do
 
   describe("#initialize") do
     it("creates a new word class object") do
-      test_word = Word.new({:name => "Spry"})
-      expect(test_word.name()).to(eq("spry"))
+      test_word = Word.new({:word => "Spry"})
+      expect(test_word.word()).to(eq("spry"))
       expect(test_word.id()).to(eq(1))
     end
   end
@@ -24,7 +24,7 @@ describe(Word) do
 
   describe("#save") do
     it("successfully saves a word to the Word class") do
-      test_word = Word.new({:name => "Spry"})
+      test_word = Word.new({:word => "Spry"})
       test_word.save()
       expect(Word.all()).to(eq([test_word]))
     end
@@ -32,7 +32,7 @@ describe(Word) do
 
   describe(".clear") do
     it("clears all words that have been saved") do
-      test_word = Word.new({:name => "Spry"})
+      test_word = Word.new({:word => "Spry"})
       test_word.save()
       Word.clear()
       expect(Word.all()).to(eq([]))
@@ -41,8 +41,8 @@ describe(Word) do
 
   describe(".delete") do
     it("deletes a single word from the Word class") do
-      test_word = Word.new({:name => "Spry"})
-      test_word2 = Word.new({:name => "Peppy"})
+      test_word = Word.new({:word => "Spry"})
+      test_word2 = Word.new({:word => "Peppy"})
       test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 2})
       test_word.save()
       test_word2.save()
@@ -55,8 +55,8 @@ describe(Word) do
 
   describe(".find") do
     it("finds a single word by id number") do
-      test_word = Word.new({:name => "Spry"})
-      test_word2 = Word.new({:name => "Peppy"})
+      test_word = Word.new({:word => "Spry"})
+      test_word2 = Word.new({:word => "Peppy"})
       test_word.save()
       test_word2.save()
       expect(Word.find(2)).to(eq(test_word2))
@@ -65,8 +65,8 @@ describe(Word) do
 
   describe(".sort") do
     it("sorts words alphabetically") do
-      test_word = Word.new({:name => "Spry"})
-      test_word2 = Word.new({:name => "Peppy"})
+      test_word = Word.new({:word => "Spry"})
+      test_word2 = Word.new({:word => "Peppy"})
       test_word.save()
       test_word2.save()
       Word.sort()
@@ -76,8 +76,8 @@ describe(Word) do
 
   describe("#find_definitions") do
     it("finds all definitions for a specific word") do
-      test_word = Word.new({:name => "Spry"})
-      test_word2 = Word.new({:name => "Peppy"})
+      test_word = Word.new({:word => "Spry"})
+      test_word2 = Word.new({:word => "Peppy"})
       test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
       test_word.save()
       test_word2.save()
@@ -146,7 +146,7 @@ describe(Definition) do
 
   describe(".find_by_word_id") do
     it("finds all the definitions that are associated with a word id") do
-      test_word = Word.new({:name => "Spry"})
+      test_word = Word.new({:word => "Spry"})
       test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
       test_word.save()
       test_definition.save()

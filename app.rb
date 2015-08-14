@@ -7,3 +7,8 @@ also_reload("lib/**/*.rb")
 get ('/') do
   erb(:index)
 end
+
+post ('/word/add') do
+  @word = params.fetch('word')
+  erb(:word)
+end
