@@ -49,6 +49,7 @@ class Word
     @@words.sort!{|a, b| a.name() <=> b.name()}
   end
 
-  # define_method(:find_definitions) do
-  # end
+  define_method(:find_definitions) do
+    Definition.find_by_word_id(@id)
+  end
 end

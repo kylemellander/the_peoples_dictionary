@@ -73,6 +73,18 @@ describe(Word) do
       expect(Word.all()).to(eq([test_word2, test_word]))
     end
   end
+
+  describe("#find_definitions") do
+    it("finds all definitions for a specific word") do
+      test_word = Word.new({:name => "Spry"})
+      test_word2 = Word.new({:name => "Peppy"})
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_word.save()
+      test_word2.save()
+      test_definition.save()
+      expect(test_word.find_definitions()).to(eq([test_definition]))
+    end
+  end
 end
 
 describe(Definition) do
