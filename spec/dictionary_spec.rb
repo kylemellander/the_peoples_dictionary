@@ -58,4 +58,15 @@ describe(Word) do
       expect(Word.find(2)).to(eq(test_word2))
     end
   end
+
+  describe(".sort") do
+    it("sorts words alphabetically") do
+      test_word = Word.new({:name => "Spry"})
+      test_word2 = Word.new({:name => "Peppy"})
+      test_word.save()
+      test_word2.save()
+      Word.sort()
+      expect(Word.all()).to(eq([test_word2, test_word]))
+    end
+  end
 end

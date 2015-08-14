@@ -42,4 +42,8 @@ class Word
     end
     found_word
   end
+
+  define_singleton_method(:sort) do
+    @@words.sort!{|a, b| a.name() <=> b.name()}
+  end
 end
