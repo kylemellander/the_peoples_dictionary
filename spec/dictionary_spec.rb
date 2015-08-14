@@ -3,6 +3,10 @@ require("word")
 require("definition")
 
 describe(Word) do
+  before() do
+    Word.clear()
+  end
+
   describe("#initialize") do
     it("creates a new word class object") do
       test_word = Word.new({:name => "Spry"})
@@ -42,6 +46,16 @@ describe(Word) do
       test_word2.save()
       Word.delete(2)
       expect(Word.all()).to(eq([test_word]))
+    end
+  end
+
+  describe(".find") do
+    it("finds a single word by id number") do
+      test_word = Word.new({:name => "Spry"})
+      test_word2 = Word.new({:name => "Peppy"})
+      test_word.save()
+      test_word2.save()
+      expect(Word.find(2)).to(eq(test_word2))
     end
   end
 end

@@ -32,4 +32,14 @@ class Word
     end
     @@words = revised_words
   end
+
+  define_singleton_method(:find) do |id|
+    found_word = nil
+    @@words.each do |word|
+      if word.id() == id
+        found_word = word
+      end
+    end
+    found_word
+  end
 end
