@@ -24,4 +24,13 @@ class Definition
     @@id_count = 0
   end
 
+  define_singleton_method(:delete) do |id|
+    revised_definitions = []
+    @@definitions.each do |definition|
+      if definition.id() != id
+        revised_definitions.push(definition)
+      end
+    end
+    @@definitions = revised_definitions
+  end
 end

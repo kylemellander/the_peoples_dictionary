@@ -103,4 +103,16 @@ describe(Definition) do
       expect(Definition.all()).to(eq([]))
     end
   end
+
+  describe(".delete") do
+    it("deletes a single definition from the Definition class") do
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_definition2 = Definition.new({:definition => "Energetic and happy.", :word_id => 2})
+      test_definition.save()
+      test_definition2.save()
+      Definition.delete(2)
+      expect(Definition.all()).to(eq([test_definition]))
+    end
+  end
+
 end
