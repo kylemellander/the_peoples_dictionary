@@ -18,3 +18,11 @@ get ('/word/:id') do
   @word = Word.find(params.fetch("id").to_i)
   erb(:word)
 end
+
+post ('/word/:word_id/definition/add') do
+  @word_id = params.fetch("word_id").to_i
+  @word = Word.find(@word_id)
+  definition = params.fetch("definition")
+  Definition.new({:definition => definition, :word_id => @word_id})
+  erb(:word)
+end

@@ -1,2 +1,19 @@
 <h2 class="ko-word-title"><%= @word.word().capitalize() %></h2>
-<h3 class="ko-heading">Definitions:</h3>
+<div class="row ko-all-definitions">
+  <h3 class="ko-heading">Definitions:</h3>
+  <ul>
+    <% Definition.find_by_word_id(@word_id).each do |definition| %>
+    <li class="ko-definition-list">
+      <%= definition.definition() %>
+    </li>
+    <% end %>
+  </ul>
+
+</div>
+<div class="row ko-add-definition">
+  <form action="/word/<%= @word.id() %>/definition/add" method="post">
+    <label for="definition">Add a definition for this word:</label>
+    <input type="text" name="definition" placeholder="Definition">
+    <button type="submit">Add Definition</button>
+  </form>
+</div>
