@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row ko-all-words">
+    <h3 class="ko-heading">Words:</h3>
     <ul>
       <% Word.all().each do |word| %>
       <li class="ko-word-list">
-        <div <a href="/word/<%= word.id() %>"><%= word.word() %></a>
+        <a href="/word/<%= word.id() %>"><%= word.word() %></a>
       </li>
       <% end %>
     </ul>

@@ -4,6 +4,11 @@ Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
 describe('dictionary site', {:type => :feature}) do
+  before() do
+    Word.clear()
+    Definition.clear()
+  end
+
   it("successfully loads index page from root") do
     visit('/')
     expect(page).to have_content("The People's Dictionary")
@@ -22,5 +27,13 @@ describe('dictionary site', {:type => :feature}) do
     click_button("Add Word")
     click_link("The People's Dictionary")
     expect(page).to have_content("spry")
+  end
+
+  it("successfully displays the page of an individual word when clicked") do
+    Word.new({:word => "Spry"}).save()
+    visit('/')
+    click_link("spry")
+    expect(page).to have_content("Spry")
+    expect(page).to have_content("Definitions:")
   end
 end
