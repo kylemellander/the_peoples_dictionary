@@ -70,3 +70,14 @@ describe(Word) do
     end
   end
 end
+
+describe(Definition) do
+  describe("#initialize") do
+    it("creates new Definition with parameters") do
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      expect(test_definition.definition()).to(eq("Quick; Agile"))
+      expect(test_definition.id()).to(eq(1))
+      expect(test_definition.word_id()).to(eq(1))
+    end
+  end
+end

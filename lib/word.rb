@@ -46,4 +46,7 @@ class Word
   define_singleton_method(:sort) do
     @@words.sort!{|a, b| a.name() <=> b.name()}
   end
+
+  # define_method(:find_definitions) do
+  # end
 end
