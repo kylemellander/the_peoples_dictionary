@@ -51,3 +51,10 @@ get ('/word/:word_id/:id/delete') do
   @word = Word.find(params.fetch('word_id').to_i)
   erb(:word)
 end
+
+get ('/word/:word_id/:id/upvote') do
+  id = params.fetch('id').to_i
+  Definition.upvote(id)
+  @word = Word.find(params.fetch('word_id').to_i)
+  erb(:word)
+end

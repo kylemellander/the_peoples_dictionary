@@ -7,8 +7,17 @@
 <div class="row">
   <h3 class="ko-heading">Definitions:</h3>
   <div class="ko-all-definitions">
+    <% i=1 %>
     <% Definition.find_by_word_id(@word.id()).each do |definition| %>
     <div class="ko-definition">
+      <div class="ko-rank">
+        <%= i %>
+      </div>
+      <div class="ko-vote">
+        <a href="/word/<%= @word.id() %>/<%= definition.id() %>/upvote"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+        <p class="ko-votes-count"><%= definition.votes() %></p>
+        <a href="/word/<%= @word.id() %>/<%= definition.id() %>/downvote"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+      </div>
       <div class="ko-definition-display">
         <%= definition.definition() %>
       </div>
@@ -16,6 +25,7 @@
         <a href="/word/<%= @word.id() %>/<%= definition.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
       </div>
     </div>
+      <% i += 1 %>
     <% end %>
   </div>
 </div>
