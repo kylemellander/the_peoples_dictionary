@@ -131,4 +131,15 @@ describe(Definition) do
     end
   end
 
+  describe(".delete_by_word_id") do
+    it ("deletes all definitions associated with a particular word") do
+      test_word = Word.new({:name => "Spry"})
+      test_definition = Definition.new({:definition => "Quick; Agile", :word_id => 1})
+      test_word.save()
+      test_definition.save()
+      Definition.delete_by_word_id(1)
+      expect(Definition.all()).to(eq([]))
+    end
+  end
+
 end

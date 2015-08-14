@@ -34,6 +34,16 @@ class Definition
     @@definitions = revised_definitions
   end
 
+  define_singleton_method(:delete_by_word_id) do |word_id|
+    revised_definitions = []
+    @@definitions.each do |definition|
+      if definition.word_id() != word_id
+        revised_definitions.push(definition)
+      end
+    end
+    @@definitions = revised_definitions
+  end
+
   define_singleton_method(:find_by_word_id) do |word_id|
     found_definitions = []
     @@definitions.each do |definition|
