@@ -9,6 +9,7 @@ get ('/') do
 end
 
 post ('/word/add') do
-  @word = params.fetch('word').downcase
+  @word = Word.new({:word => params.fetch('word')})
+  @word.save()
   erb(:word)
 end
