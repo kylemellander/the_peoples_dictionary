@@ -28,7 +28,7 @@ body {
 }
 @media (max-width:768px) {
   h2.ko-word-title {
-    font-size:.8em;
+    font-size:.5em;
   }
 }
 h2.ko-word-title {
