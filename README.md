@@ -16,7 +16,7 @@ A dictionary app that is user driven.  Users are able to add words to the dictio
 
 ---------------------------
 
-* Alternatively, you can test out the app at 
+* Alternatively, you can test out the app at https://guarded-plateau-9868.herokuapp.com/
 
 ## Technologies Used
 
