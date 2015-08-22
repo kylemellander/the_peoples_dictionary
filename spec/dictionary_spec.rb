@@ -1,4 +1,7 @@
+ENV['RACK_ENV'] = 'test'
+
 require("rspec")
+require("sinatra-activerecord")
 require("word")
 require("definition")
 

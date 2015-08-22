@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: dictionary_development
+  username: postgres
+  password: secret
+
+test:
+  adapter: postgresql
+  database: dictionary_test
+  username: postgres
+  password: secret
