@@ -10,12 +10,12 @@ get ('/') do
 end
 
 post ('/word/add') do
-  @word = Word.new({:word => params.fetch('word')})
+  @word = Word.new({:name => params.fetch('word')})
   @word.save()
   if @word.error_check() == 1
     erb(:index)
   else
-    @success_message = "#{@word.word} has been added."
+    @success_message = "#{@word.name} has been added."
     erb(:word)
   end
 end
@@ -38,7 +38,7 @@ get ('/word/:id/delete') do
   id = params.fetch('id').to_i
   word = Word.find(id)
   @success = 1
-  @message = "You have successfully deleted the word '" + word.word() + "'."
+  @message = "You have successfully deleted the word '" + word.name() + "'."
   Word.delete(id)
   erb(:index)
 end

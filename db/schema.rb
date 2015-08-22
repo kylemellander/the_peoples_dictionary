@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822161045) do
+ActiveRecord::Schema.define(version: 20150822183629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "definitions", force: :cascade do |t|
-    t.string  "definition"
-    t.integer "votes"
     t.integer "word_id"
+    t.string  "definition"
+    t.integer "votes",      default: 0
   end
 
+  add_index "definitions", ["word_id"], name: "index_definitions_on_word_id", using: :btree
+
   create_table "words", force: :cascade do |t|
-    t.string "word"
+    t.string "name"
   end
 
 end

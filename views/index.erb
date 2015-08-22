@@ -15,13 +15,13 @@
     <h3 class="ko-heading">Words:</h3>
     <div class="ko-all-words">
       <% i=1 %>
-      <% Word.all().each do |word| %>
+      <% Word.all.order(:name).each do |word| %>
       <div class="ko-word <% if i.even? %>even<% else %>odd<% end%>">
         <div class="ko-delete">
           <a href="/word/<%= word.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
         </div>
         <div class="ko-word-display">
-          <a href="/word/<%= word.id() %>"><%= word.word() %></a>
+          <a href="/word/<%= word.id() %>"><%= word.name() %></a>
         </div>
       </div>
         <% i+=1 %>
