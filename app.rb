@@ -54,7 +54,7 @@ end
 
 get ('/word/:word_id/:id/upvote') do
   id = params.fetch('id').to_i
-  Definition.upvote(id)
+  Definition.find(id).upvote
   @word = Word.find(params.fetch('word_id').to_i)
   erb(:word)
 end

@@ -9,7 +9,7 @@
     <h3 class="ko-heading">Definitions:</h3>
     <div class="ko-all-definitions">
       <% i=1 %>
-      <% Definition.find_by_word_id(@word.id()).each do |definition| %>
+      <% @word.definitions.order(votes: :desc).each do |definition| %>
       <div class="ko-definition <% if i.even? %>even<% else %>odd<% end%>">
         <div class="ko-delete">
           <a href="/word/<%= @word.id() %>/<%= definition.id() %>/delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
