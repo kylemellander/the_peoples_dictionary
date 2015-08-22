@@ -1,7 +1,7 @@
 <div class="container">
-  <% if @success == 1 %>
-  <div class="row ko-success-message">
-    <%= @message %>
+  <% if @success_message != nil %>
+  <div class="alert alert-success">
+    <%= @success_message %>
   </div>
   <% end %>
   <h2 class="ko-word-title"><%= @word.word().capitalize() %></h2>

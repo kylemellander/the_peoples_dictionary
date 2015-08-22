@@ -12,11 +12,10 @@ end
 post ('/word/add') do
   @word = Word.new({:word => params.fetch('word')})
   @word.save()
-  if @word.error() == 1
+  if @word.error_check() == 1
     erb(:index)
   else
-    @success = 1
-    @message = @word.message()
+    @success_message = "#{@word.word} has been added."
     erb(:word)
   end
 end
